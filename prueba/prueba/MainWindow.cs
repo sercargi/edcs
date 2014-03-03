@@ -62,7 +62,58 @@ public partial class MainWindow: Gtk.Window
 			entry2.Text = " ";	
 			entryResult.Text = " ";
 		};
+		/*entry1.TextInserted += delegate (object o, TextInsertedArgs args){
+			Console.WriteLine ("entry1.TextInserted args.Text={0}", args.Text);	
+		}
+		*/
+//		Button[] buttons = new Button []{uno, dos};
+//		foreach (Button uno in buttons) {
+//			Button b = button;
+//			button.Clicked += buttons;{
+//				buttonClicked (b);
+//			};
+//		}
+		//Solucion de complejidad alta!
 		
+		uno.Clicked +=delegate{		
+			try{			
+				buttonClicked (uno);
+			}
+			catch (FormatException){
+				entryResult.Text=("¡Las letras no se operan, MELON!");
+			}
+		};
+		
+		uno.Clicked += delegate(object sender, EventArgs e){
+			Button button = (Button)sender;
+			Entry entry = Focus as Entry;
+			if (entry != null)
+				entry.Text = entry.Text + button.Label;	
+		};
+		
+		
+		dos.Clicked +=delegate{		
+			try{	
+				buttonClicked (dos);			
+			}
+			catch (FormatException){
+				entryResult.Text=("¡Las letras no se operan, MELON!");
+			}
+		};
+		
+		tres.Clicked +=delegate{		
+			try{	
+				buttonClicked (tres);
+			}
+			catch (FormatException){
+				entryResult.Text=("¡Las letras no se operan, MELON!");
+			}
+		};
+	}
+	private void buttonClicked(Button button){
+		Entry entry = Focus as Entry;
+				if (entry != null)
+				entry.Text = entry.Text + button.Label;	
 	}
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)

@@ -19,6 +19,10 @@ public partial class MainWindow
 	private global::Gtk.Button BotonMulti;
 	private global::Gtk.Button BotonDiv;
 	private global::Gtk.Button BotonReset;
+	private global::Gtk.Table table1;
+	private global::Gtk.Button dos;
+	private global::Gtk.Button tres;
+	private global::Gtk.Button uno;
 	
 	protected virtual void Build ()
 	{
@@ -49,6 +53,7 @@ public partial class MainWindow
 		this.entry1.CanFocus = true;
 		this.entry1.Name = "entry1";
 		this.entry1.IsEditable = true;
+		this.entry1.InvisibleChar = '•';
 		this.hbox3.Add (this.entry1);
 		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.entry1]));
 		w2.Position = 1;
@@ -73,6 +78,7 @@ public partial class MainWindow
 		this.entry2.CanFocus = true;
 		this.entry2.Name = "entry2";
 		this.entry2.IsEditable = true;
+		this.entry2.InvisibleChar = '•';
 		this.hbox4.Add (this.entry2);
 		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.entry2]));
 		w5.Position = 1;
@@ -97,6 +103,7 @@ public partial class MainWindow
 		this.entryResult.CanFocus = true;
 		this.entryResult.Name = "entryResult";
 		this.entryResult.IsEditable = true;
+		this.entryResult.InvisibleChar = '•';
 		this.hbox5.Add (this.entryResult);
 		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox5 [this.entryResult]));
 		w8.Position = 1;
@@ -224,6 +231,49 @@ public partial class MainWindow
 		w47.Position = 3;
 		w47.Expand = false;
 		w47.Fill = false;
+		// Container child vbox3.Gtk.Box+BoxChild
+		this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(3)), false);
+		this.table1.Name = "table1";
+		this.table1.RowSpacing = ((uint)(6));
+		this.table1.ColumnSpacing = ((uint)(6));
+		// Container child table1.Gtk.Table+TableChild
+		this.dos = new global::Gtk.Button ();
+		this.dos.CanFocus = true;
+		this.dos.Name = "dos";
+		this.dos.UseUnderline = true;
+		this.dos.FocusOnClick = false;
+		this.dos.Label = global::Mono.Unix.Catalog.GetString ("2");
+		this.table1.Add (this.dos);
+		global::Gtk.Table.TableChild w48 = ((global::Gtk.Table.TableChild)(this.table1 [this.dos]));
+		w48.LeftAttach = ((uint)(1));
+		w48.RightAttach = ((uint)(2));
+		w48.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table1.Gtk.Table+TableChild
+		this.tres = new global::Gtk.Button ();
+		this.tres.CanFocus = true;
+		this.tres.Name = "tres";
+		this.tres.UseUnderline = true;
+		this.tres.FocusOnClick = false;
+		this.tres.Label = global::Mono.Unix.Catalog.GetString ("3");
+		this.table1.Add (this.tres);
+		global::Gtk.Table.TableChild w49 = ((global::Gtk.Table.TableChild)(this.table1 [this.tres]));
+		w49.LeftAttach = ((uint)(2));
+		w49.RightAttach = ((uint)(3));
+		w49.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table1.Gtk.Table+TableChild
+		this.uno = new global::Gtk.Button ();
+		this.uno.CanFocus = true;
+		this.uno.Name = "uno";
+		this.uno.UseUnderline = true;
+		this.uno.FocusOnClick = false;
+		this.uno.Label = global::Mono.Unix.Catalog.GetString ("1");
+		this.table1.Add (this.uno);
+		global::Gtk.Table.TableChild w50 = ((global::Gtk.Table.TableChild)(this.table1 [this.uno]));
+		w50.YOptions = ((global::Gtk.AttachOptions)(4));
+		this.vbox3.Add (this.table1);
+		global::Gtk.Box.BoxChild w51 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.table1]));
+		w51.PackType = ((global::Gtk.PackType)(1));
+		w51.Position = 4;
 		this.Add (this.vbox3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
