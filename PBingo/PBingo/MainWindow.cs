@@ -6,27 +6,68 @@ using System.Diagnostics;
 public partial class MainWindow: Gtk.Window
 {	
 	
-	private List<int> numeros;
+	private List<int> numeros = new List<int>();
+	
 	private Random random = new Random();
+	
+	private Table table;
+	private Table table2;
+	//Vamos a crear un array para introducir una lista de BOTONES
+	private List<Button> buttons = new List<Button>();
+	
+	private static readonly Gdk.Color COLOR_GREEN = new Gdk.Color(0,255,0);
+	
+	private int numeroTotalBolas = 90;
 	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
 		
-		Table table = new Table (9, 10, true);
-		vbox1.Add(table);
-		table.Visible = true;
+		//uint numeroTotalFilas = (((uint)numeroTotalBolas-1)/10)+1;
 		
-		//Vamos a crear un array para introducir una lista de BOTONES
-		List<Button> buttons = new List<Button>();
+		table = new Table (9, 10, true);		
+		vbox1.Add(table);		
+		table.Visible = true;	
 		
-		for (int index = 0; index < 90; index++){
+		table2 = new Table (9, 10, true);
+		vbox1.Add(table2);
+		table2.Visible = true;
+		
+		addButtons();
+		
+		
+				
+		for (int numero = 1; numero <= 90; numero++)
+			numeros.Add(numero);
+		
+		showNumeros();	
+		
+		
+		goForwardAction.Activated += delegate {
 			
+			int indexAleatorio = random.Next(numeros.Count);
+			int numeroExtraido = numeros[ indexAleatorio ];
 			
+			entryNumero.Text = numeroExtraido.ToString();
+			
+			espeak (numeroExtraido);
+			//PONERLO PARA QUE SE VEA CADA NUMERO ALEATORIO
+			buttons[numeroExtraido-1].ModifyBg(StateType.Normal, COLOR_GREEN);
+			
+			numeros.Remove(numeroExtraido);
+			
+			showNumeros();
+			
+			addButtonsExtraidos(numeroExtraido);
+		}; 
+		
+		
+	}
+	private void addButtons(){
+		// añadir los botones al table
+		for (int index = 0; index < numeroTotalBolas; index++){			
 			Button button = new Button();
-			button.Label = string.Format ("{0}", index + 1);
-			//tambien lo podemos poner asi
-			//button.Label = (index + 1).ToString();
+			button.Label = string.Format ("{0}", index + 1);			
 			button.Visible = true;
 			
 			buttons.Add(button);
@@ -39,36 +80,43 @@ public partial class MainWindow: Gtk.Window
 			//table.Attach(button, 1, 2, 0, 1);
 		
 		}
-		//Aqui le aplicamos color verde al boton 0
-		Gdk.Color verde = new Gdk.Color(0,255,0);
-		
-		
-		
-		numeros = new List<int>();		
-		//TODO 90 parece que sera un "parametro" de la aplicacion
-		for (int numero = 1; numero <= 90; numero++)
-			numeros.Add(numero);
-		
-		showNumeros();		
-		
-		goForwardAction.Activated += delegate {
-			
-			int indexAleatorio = random.Next(numeros.Count);
-			int numeroExtraido = numeros[ indexAleatorio ];
-			
-			entryNumero.Text = numeroExtraido.ToString();
-			
-			espeak (numeroExtraido);
-			//PONERLO PARA QUE SE VEA CADA NUMERO ALEATORIO
-			buttons[numeroExtraido-1].ModifyBg(StateType.Normal, verde);
-			
-			numeros.Remove(numeroExtraido);
-			
-			showNumeros();
-		}; 
-		
-		
 	}
+	int cont = 0;
+	private void addButtonsExtraidos(int num){	
+					
+			Button button = new Button();
+			button.Label = num.ToString();
+			//tambien lo podemos poner asi
+			
+			button.Visible = true;
+			
+			buttons.Add(button);
+			
+			uint fila = (uint)cont / 10;
+			uint columna = (uint)cont % 10;
+			//uint unicamente cogera valores positivos
+		
+			cont++;
+			
+			table2.Attach(button, columna, columna + 1, fila, fila + 1);		
+	}
+//	private void addButtonsExtraidos(){	
+//					
+//			Button button = new Button();
+//			button.Label = entryNumero.Text;			
+//			button.Visible = true;
+//		
+//		int count = table2.Children.Length;
+//			
+//			buttons.Add(button);
+//			
+//			uint fila = (uint)cont / 10;
+//			uint columna = (uint)cont % 10;			
+//		
+//			cont++;
+//			
+//			table2.Attach(button, columna, columna + 1, fila, fila + 1);		
+//	}
 	
 	private void showNumeros(){
 //		for (int index = 0; index < numeros.Count; index++)
