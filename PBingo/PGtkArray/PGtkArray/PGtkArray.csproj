@@ -71,8 +71,12 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="MyWidget.cs" />
     <Compile Include="gtk-gui\PGtkArray.MyWidget.cs" />
-    <Compile Include="ArrayButton.cs" />
-    <Compile Include="gtk-gui\PGtkArray.ArrayButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\PSerpisEd\PSerpisEd.csproj">
+      <Project>{56AD8061-0B2F-45E7-9EF8-3A8CA2F912BF}</Project>
+      <Name>PSerpisEd</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
