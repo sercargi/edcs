@@ -48,8 +48,8 @@
           <widget class="Serpis.Ed.ArrayButton" id="ArrayButton">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
-            <property name="Rows">0</property>
-            <property name="Columns">0</property>
+            <property name="Rows">9</property>
+            <property name="Columns">10</property>
           </widget>
           <packing>
             <property name="Position">2</property>

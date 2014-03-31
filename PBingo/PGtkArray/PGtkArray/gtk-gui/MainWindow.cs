@@ -47,8 +47,8 @@ public partial class MainWindow
 		this.ArrayButton = new global::Serpis.Ed.ArrayButton ();
 		this.ArrayButton.Events = ((global::Gdk.EventMask)(256));
 		this.ArrayButton.Name = "ArrayButton";
-		this.ArrayButton.Rows = 0;
-		this.ArrayButton.Columns = 0;
+		this.ArrayButton.Rows = 9;
+		this.ArrayButton.Columns = 10;
 		this.vbox2.Add (this.ArrayButton);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.ArrayButton]));
 		w4.Position = 2;
