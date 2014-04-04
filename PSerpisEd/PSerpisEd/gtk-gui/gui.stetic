@@ -7,7 +7,7 @@
   <import>
     <widget-library name="../bin/Debug/PSerpisEd.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="Serpis.Ed.ArrayButton" design-size="300 300">
+  <widget class="Gtk.Bin" id="Serpis.ed.ArrayButton" design-size="300 300">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{56AD8061-0B2F-45E7-9EF8-3A8CA2F912BF}</ProjectGuid>
+    <ProjectGuid>{E04158E7-31FA-4726-B227-A0DA925D2AEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>PSerpisEd</RootNamespace>
     <AssemblyName>PSerpisEd</AssemblyName>
@@ -42,7 +42,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="ArrayButton.cs" />
-    <Compile Include="gtk-gui\Serpis.Ed.ArrayButton.cs" />
+    <Compile Include="gtk-gui\Serpis.ed.ArrayButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

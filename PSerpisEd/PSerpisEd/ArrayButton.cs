@@ -2,7 +2,7 @@ using Gtk;
 using System;
 using System.Collections.Generic;
 
-namespace Serpis.Ed
+namespace Serpis.ed
 {
 	[System.ComponentModel.ToolboxItem(true)]
 	public partial class ArrayButton : Gtk.Bin
